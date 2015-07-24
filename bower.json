@@ -4,7 +4,7 @@
   "authors": [
     "Donna Peplinskie <donna.peplinskie@risevision.com>"
   ],
-  "description": "Web component for displaying content based on a timeline",
+  "description": "Web component for displaying content based on timeline settings",
   "keywords": [
     "web-component",
     "web-components",
@@ -20,6 +20,7 @@
     "/node_modules"
   ],
   "dependencies": {
+    "moment": "~2.10.3",
     "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {

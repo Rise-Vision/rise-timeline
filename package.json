@@ -1,7 +1,7 @@
 {
   "name": "rise-timeline",
   "version": "1.0.0",
-  "description": "Web component for displaying content based on a timeline",
+  "description": "Web component for displaying content based on timeline settings",
   "scripts": {
     "test": "gulp test",
     "build": "gulp build"
