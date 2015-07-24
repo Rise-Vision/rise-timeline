@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>Timeline</title>
+
+  <script src="../../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="../../../web-component-tester/browser.js"></script>
+
+  <link rel="import" href="../../rise-timeline.html">
+
+</head>
+<body>
+  <rise-timeline start-time="9:00 AM" end-time="5:00 PM"></rise-timeline>
+
+  <script>
+    suite("timeline", function() {
+      var timeline = document.querySelector("rise-timeline");
+
+      suite("canPlay", function() {
+        setup(function() {
+          timeline.startTime = "9:00 AM";
+          timeline.endTime = "5:00 PM";
+        });
+
+        test("should return false if the start time is invalid", function() {
+          timeline.startTime = "619";
+
+          assert.isFalse(timeline.canPlay());
+        });
+
+        test("should return false if the end time is invalid", function() {
+          timeline.endTime = "25:15";
+
+          assert.isFalse(timeline.canPlay());
+        });
+      });
+
+      suite("_getTime", function() {
+        var now, newDate;
+
+        suiteSetup(function() {
+          now = new Date();
+
+          // Set date to July 1, 2015. The time is irrelevant.
+          now.setFullYear(2015);
+          now.setMonth(6);
+          now.setDate(1);
+        });
+
+        test("should return a valid date object", function() {
+          newDate = timeline._getTime("9:00 AM", now);
+
+          assert.typeOf(newDate, "date");
+          assert.equal(newDate.toString(), new Date("2015-07-01 9:00 AM").toString());
+        });
+
+        test("should return null for an invalid time", function() {
+          newDate = timeline._getTime("9:60 AM", now);
+
+          assert.isNull(newDate);
+        });
+      });
+
+      suite("_checkTime", function() {
+        var start, end, now;
+
+        suiteSetup(function() {
+          start = new Date();
+          end = new Date();
+          now = new Date();
+
+          start.setHours(9);
+          start.setMinutes(0);
+          start.setSeconds(0);
+          start.setMilliseconds(0);
+
+          end.setHours(17);
+          end.setMinutes(0);
+          end.setSeconds(0);
+          end.setMilliseconds(0);
+
+          now.setSeconds(0);
+          now.setMilliseconds(0);
+        });
+
+        test("should return true if the specified time is between the start and end time", function() {
+          now.setHours(12);
+          now.setMinutes(0);
+
+          assert.isTrue(timeline._checkTime(start, end, now));
+        });
+
+        test("should return true if the specified time equals the start time", function() {
+          now.setHours(9);
+          now.setMinutes(0);
+
+          assert.isTrue(timeline._checkTime(start, end, now));
+        });
+
+        test("should return true if the specified time equals the end time", function() {
+          now.setHours(17);
+          now.setMinutes(0);
+
+          assert.isTrue(timeline._checkTime(start, end, now));
+        });
+
+        test("should return false if the specified time is before the start time", function() {
+          now.setHours(8);
+          now.setMinutes(59);
+
+          assert.isFalse(timeline._checkTime(start, end, now));
+        });
+
+        test("should return false if the specified time is after the end time", function() {
+          now.setHours(17);
+          now.setMinutes(1);
+
+          assert.isFalse(timeline._checkTime(start, end, now));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
