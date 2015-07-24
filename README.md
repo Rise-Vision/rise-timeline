@@ -38,6 +38,8 @@ Next, construct your HTML page. You should include `webcomponents-lite.min.js` b
 </html>
 ```
 
+*Note:* Every playlist and content component must be assigned a unique `id` attribute.
+
 ### Attributes
 | Attribute               | Type                              | Default |
 | ----------------------- | --------------------------------- | :-----: |
