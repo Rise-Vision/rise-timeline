@@ -2,7 +2,6 @@
 
 ##
 `rise-timeline` is a Polymer Web Component that works with Rise Vision, the digital signage management application for Web Designers. `rise-timeline` enables content to be shown in an HTML page based on timeline settings. It is intended to be used with the [`rise-page`](https://github.com/Rise-Vision/web-component-rise-page), [`rise-playlist`](https://github.com/Rise-Vision/web-component-rise-playlist) and [`rise-playlist-item`](https://github.com/Rise-Vision/web-component-rise-playlist-item) components.
-.
 
 ## Usage
 To begin, you should install the following dependencies using Bower:
