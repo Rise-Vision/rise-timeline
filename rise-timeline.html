@@ -3,12 +3,20 @@
 <script src="../moment/min/moment.min.js"></script>
 
 <!--
-  Web component for displaying content based on timeline settings.
+`rise-timeline` is a Polymer Web Component that works with <a href="https://www.risevision.com/">Rise Vision</a>, the digital signage management application for <a href="http://risevision.com/web-designers">Web Designers</a>. It enables content to be shown in an HTML page based on timeline settings.
 
-  Example:
-    <rise-timeline start-time="9:00 AM" end-time="5:00 PM"></rise-timeline>
+### Example Usage
 
-  @demo
+      <rise-page id="page" display-id="your-display-id">
+        <rise-playlist id="playlist">
+          <rise-playlist-item duration="3">
+            <demo-component id="apple" src="https://url.to.apple.png"></demo-component>
+          </rise-playlist-item>
+          <rise-timeline start-time="9:00 AM" end-time="5:00 PM"></rise-timeline>
+        </rise-playlist>
+      </rise-page>
+
+@demo
 -->
 
 
@@ -22,6 +30,7 @@
     properties: {
       /**
        * The start time before which content will not be shown.
+       * Format: 9:00 AM
        */
       startTime: {
         type: String,
@@ -29,6 +38,7 @@
       },
       /**
        * The end time after which content will not be shown.
+       * Format: 5:00 PM
        */
       endTime: {
         type: String,
@@ -37,7 +47,7 @@
     },
 
     /**
-     * Check if the content should play.
+     * Checks if the content should play.
      */
     canPlay: function() {
       var now = new Date(),
@@ -58,7 +68,7 @@
     },
 
     /*
-     * Convert time string to a valid Date object.
+     * Converts a time string to a valid Date object.
      */
     _getTime: function(time, date) {
       var day, month, year, newDate;
@@ -77,7 +87,7 @@
     },
 
     /*
-     * Check that a time falls inside of a time range, inclusive.
+     * Checks that a time falls inside of a time range, inclusive.
      */
     _checkTime: function(start, end, date) {
       if ((date.getTime() >= start.getTime()) && (date.getTime() <= end.getTime())) {

@@ -6,9 +6,8 @@
   ],
   "description": "Web component for displaying content based on timeline settings",
   "keywords": [
-    "web-component",
-    "web-components",
-    "polymer"
+    "polymer",
+    "web-components"
   ],
   "main": "rise-timeline.html",
   "license": "GPLv3",
@@ -25,9 +24,9 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "rise-page": "https://github.com/Rise-Vision/web-component-rise-page.git",
-    "rise-playlist": "https://github.com/Rise-Vision/web-component-rise-playlist.git",
-    "rise-playlist-item": "https://github.com/Rise-Vision/web-component-rise-playlist-item.git",
+    "rise-page": "https://github.com/Rise-Vision/rise-page.git#1.0.1",
+    "rise-playlist-item": "https://github.com/Rise-Vision/rise-playlist-item.git#1.0.2",
+    "rise-playlist": "https://github.com/Rise-Vision/rise-playlist.git#1.0.1",
     "web-component-tester": "*"
   }
 }

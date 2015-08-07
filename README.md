@@ -1,14 +1,14 @@
 # Rise Timeline Web Component
 
 ##
-`rise-timeline` is a Polymer Web Component that works with Rise Vision, the digital signage management application for Web Designers. `rise-timeline` enables content to be shown in an HTML page based on timeline settings. It is intended to be used with the [`rise-page`](https://github.com/Rise-Vision/web-component-rise-page), [`rise-playlist`](https://github.com/Rise-Vision/web-component-rise-playlist) and [`rise-playlist-item`](https://github.com/Rise-Vision/web-component-rise-playlist-item) components.
+`rise-timeline` is a Polymer Web Component that works with Rise Vision, the digital signage management application for Web Designers. It enables content to be shown in an HTML page based on timeline settings.
 
 ## Usage
 To begin, you will need to install the following components using Bower:
 ```
-bower install https://github.com/Rise-Vision/web-component-rise-page.git
-bower install https://github.com/Rise-Vision/web-component-rise-playlist.git
-bower install https://github.com/Rise-Vision/web-component-rise-playlist-item.git
+bower install https://github.com/Rise-Vision/rise-page.git
+bower install https://github.com/Rise-Vision/rise-playlist.git
+bower install https://github.com/Rise-Vision/rise-playlist-item.git
 bower install https://github.com/Rise-Vision/rise-timeline.git
 ```
 
@@ -20,16 +20,16 @@ Next, construct your HTML page. You should include `webcomponents-lite.min.js` b
 <html>
   <head>
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import" href="bower_components/web-component-rise-page/rise-page.html">
-    <link rel="import" href="bower_components/web-component-rise-playlist/rise-playlist.html">
-    <link rel="import" href="bower_components/web-component-rise-playlist-item/rise-playlist-item.html">
+    <link rel="import" href="bower_components/rise-page/rise-page.html">
+    <link rel="import" href="bower_components/rise-playlist/rise-playlist.html">
+    <link rel="import" href="bower_components/rise-playlist-item/rise-playlist-item.html">
     <link rel="import" href="bower_components/rise-timeline/rise-timeline.html">
   </head>
   <body>
-    <rise-page id="page" display-id="your-display-id-here">
+    <rise-page id="page" display-id="your-display-id">
       <rise-playlist id="playlist">
-        <rise-playlist-item>
-          <!-- Your content component goes here. -->
+        <rise-playlist-item duration="3">
+          <!-- Your content here. -->
         </rise-playlist-item>
       </rise-playlist>
       <rise-timeline start-time="9:00AM" end-time="5:00PM"></rise-timeline>
@@ -38,18 +38,10 @@ Next, construct your HTML page. You should include `webcomponents-lite.min.js` b
 </html>
 ```
 
-*Note:* Every playlist and content component must be assigned a unique `id` attribute.
+*Note:* All playlist and content elements must be assigned a unique `id` attribute.
 
-### Attributes
-| Attribute               | Type                              | Default |
-| ----------------------- | --------------------------------- | :-----: |
-| `start-time` (optional) | Start time in the format 9:00 AM. | `''`    |
-| `end-time` (optional)   | End time in the format 5:00 PM.   | `''`    |
-
-### Methods
-| Method    | Description                                                               |
-| --------- | ------------------------------------------------------------------------- |
-| `canPlay` | Returns `true` or `false` to indicate whether or not to play the content. |
+## Documentation
+For further documentation on `rise-timeline` properties, methods, usage, and a comprehensive demo, please see [here](http://rise-vision.github.io/rise-timeline).
 
 ## Built With
 - [Polymer](https://www.polymer-project.org/)
@@ -87,12 +79,12 @@ npm install
 bower install
 ```
 
-### Demo
+### Run Locally
 To access the demo locally, run the `polyserve` command in Terminal.
 
 In your browser, navigate to:
 ```
-localhost:8080/components/rise-timeline/demo/
+http://localhost:8080/components/rise-timeline/demo/
 ```
 
 ### Testing
@@ -109,7 +101,7 @@ Run the `polyserve` command in Terminal.
 
 In your browser, navigate to:
 ```
-localhost:8080/components/rise-timeline/test/
+http://localhost:8080/components/rise-timeline/test/
 ```
 
 ### Deployment
@@ -149,9 +141,9 @@ All contributions are greatly appreciated and welcome! If you would first like t
 ## Resources
 If you have any questions or problems, please don't hesitate to join our lively and responsive community at http://community.risevision.com.
 
-If you are looking for user documentation on Rise Vision, please see http://www.risevision.com/help/users/
+If you are looking for user documentation on Rise Vision, please see https://help.risevision.com/user.
 
-If you would like more information on developing applications for Rise Vision, please visit http://www.risevision.com/help/developers/.
+If you would like more information on developing applications for Rise Vision, please visit https://help.risevision.com/developer.
 
 **Facilitator**
 
