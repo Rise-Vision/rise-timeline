@@ -18,10 +18,6 @@
 
     timer: null,
 
-    ready: function() {
-      this.onReady();
-    },
-
     // Dispatch rise-component-ready to indicate that the component has initialized.
     onReady: function() {
       var readyEvent = new CustomEvent("rise-component-ready", {

@@ -40,4 +40,14 @@
     </rise-page>
 
   </body>
+
+  <script>
+    window.addEventListener("WebComponentsReady", function() {
+      var components = document.getElementsByTagName("demo-component");
+
+      for (var i = 0; i < components.length; i++) {
+        components[i].onReady();
+      }
+    });
+  </script>
 </html>
