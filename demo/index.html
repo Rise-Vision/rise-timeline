@@ -23,17 +23,20 @@
 
     <rise-page id="page" display-id="VGZUDDWYAZHY">
 
+      <!-- This playlist will play between the hours of 8:00 AM and 5:00 PM local time. -->
       <rise-playlist id="playlist">
 
         <rise-playlist-item duration="5">
           <demo-component id="apple" src="https://goo.gl/XBnh0j"></demo-component>
         </rise-playlist-item>
 
+        <!-- This item will play between the hours of 8:00 AM and 1:00 PM local time. -->
         <rise-playlist-item duration="3">
            <demo-component id="duck" src="https://goo.gl/fyZFTU"></demo-component>
+           <rise-timeline start-time="8:00 AM" end-time="1:00 PM"></rise-timeline>
         </rise-playlist-item>
 
-        <rise-timeline start-time="9:00 AM" end-time="5:00 PM"></rise-timeline>
+        <rise-timeline start-time="8:00 AM" end-time="5:00 PM"></rise-timeline>
 
       </rise-playlist>
 
