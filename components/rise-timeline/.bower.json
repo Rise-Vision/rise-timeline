@@ -1,0 +1,41 @@
+{
+  "name": "rise-timeline",
+  "authors": [
+    "Donna Peplinskie <donna.peplinskie@risevision.com>"
+  ],
+  "description": "Web component for displaying content based on timeline settings",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "main": "rise-timeline.html",
+  "license": "GPLv3",
+  "homepage": "https://github.com/Rise-Vision/rise-timeline",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/",
+    "/node_modules"
+  ],
+  "dependencies": {
+    "moment": "~2.10.3",
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "rise-page": "https://github.com/Rise-Vision/rise-page.git#1.0.2",
+    "rise-playlist-item": "https://github.com/Rise-Vision/rise-playlist-item.git#1.0.2",
+    "rise-playlist": "https://github.com/Rise-Vision/rise-playlist.git#1.0.2",
+    "web-component-tester": "*"
+  },
+  "_release": "588ce1a22e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "588ce1a22ea54e3256d6bf1f052581cf2153c140"
+  },
+  "_source": "git://github.com/Rise-Vision/rise-timeline.git",
+  "_target": "master",
+  "_originalSource": "Rise-Vision/rise-timeline",
+  "_direct": true
+}

@@ -1,0 +1,101 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<script src="../moment/min/moment.min.js"></script>
+
+<!--
+`rise-timeline` is a Polymer Web Component that works with <a href="https://www.risevision.com/">Rise Vision</a>, the digital signage management application for <a href="http://risevision.com/web-designers">Web Designers</a>. It enables content to be shown in an HTML page based on timeline settings.
+
+### Example Usage
+
+      <rise-page id="page" display-id="your-display-id">
+        <rise-playlist id="playlist">
+          <rise-playlist-item duration="3">
+            <demo-component id="apple" src="https://url.to.apple.png"></demo-component>
+          </rise-playlist-item>
+          <rise-timeline start-time="9:00 AM" end-time="5:00 PM"></rise-timeline>
+        </rise-playlist>
+      </rise-page>
+
+@demo
+-->
+
+
+<dom-module id="rise-timeline">
+</dom-module>
+
+<script>
+  Polymer({
+    is: "rise-timeline",
+
+    properties: {
+      /**
+       * The start time before which content will not be shown.
+       * Format: 9:00 AM
+       */
+      startTime: {
+        type: String,
+        value: ""
+      },
+      /**
+       * The end time after which content will not be shown.
+       * Format: 5:00 PM
+       */
+      endTime: {
+        type: String,
+        value: ""
+      }
+    },
+
+    /**
+     * Checks if the content should play.
+     */
+    canPlay: function() {
+      var now = new Date(),
+        startTime, endTime;
+
+      startTime = this._getTime(this.startTime, now);
+      endTime = this._getTime(this.endTime, now);
+
+      // Check that times are valid.
+      if ((startTime === null) || (endTime === null)) {
+        console.info("The start time and/or the end time attribute is invalid.");
+
+        return false;
+      }
+      else {
+        return this._checkTime(startTime, endTime, now);
+      }
+    },
+
+    /*
+     * Converts a time string to a valid Date object.
+     */
+    _getTime: function(time, date) {
+      var day, month, year, newDate;
+
+      day = date.getDate();
+      month = date.getMonth() + 1;
+      year = date.getFullYear();
+      newDate = moment(year + "-" + month + "-" + day + " " + time, "YYYY-MM-DD h:mm A");
+
+      if (newDate.isValid()) {
+        return newDate.toDate();
+      }
+      else {
+        return null;
+      }
+    },
+
+    /*
+     * Checks that a time falls inside of a time range, inclusive.
+     */
+    _checkTime: function(start, end, date) {
+      if ((date.getTime() >= start.getTime()) && (date.getTime() <= end.getTime())) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  });
+</script>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>rise-timeline Demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../rise-page/rise-page.html">
+    <link rel="import" href="../../rise-playlist/rise-playlist.html">
+    <link rel="import" href="../../rise-playlist-item/rise-playlist-item.html">
+    <link rel="import" href="../rise-timeline.html">
+    <link rel="import" href="demo-component.html">
+
+    <style>
+      demo-component {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+
+    <rise-page id="page" display-id="VGZUDDWYAZHY">
+
+      <!-- This playlist will play between the hours of 8:00 AM and 5:00 PM local time. -->
+      <rise-playlist id="playlist">
+
+        <rise-playlist-item duration="5">
+          <demo-component id="apple" src="https://goo.gl/XBnh0j"></demo-component>
+        </rise-playlist-item>
+
+        <!-- This item will play between the hours of 8:00 AM and 1:00 PM local time. -->
+        <rise-playlist-item duration="3">
+           <demo-component id="duck" src="https://goo.gl/fyZFTU"></demo-component>
+           <rise-timeline start-time="8:00 AM" end-time="1:00 PM"></rise-timeline>
+        </rise-playlist-item>
+
+        <rise-timeline start-time="8:00 AM" end-time="5:00 PM"></rise-timeline>
+
+      </rise-playlist>
+
+    </rise-page>
+
+  </body>
+
+  <script>
+    window.addEventListener("WebComponentsReady", function() {
+      var components = document.getElementsByTagName("demo-component");
+
+      for (var i = 0; i < components.length; i++) {
+        components[i].onReady();
+      }
+    });
+  </script>
+</html>
